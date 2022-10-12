@@ -1,0 +1,29 @@
+==44690== Memcheck, a memory error detector
+==44690== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==44690== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==44690== Command: ./app/shell-app
+==44690== 
+Averaged sensor reading: 10
+==44690== Conditional jump or move depends on uninitialised value(s)
+==44690==    at 0x402322: main (app/main.cpp:9)
+==44690== 
+==44690== 
+==44690== HEAP SUMMARY:
+==44690==     in use at exit: 44 bytes in 2 blocks
+==44690==   total heap usage: 4 allocs, 2 frees, 76,844 bytes allocated
+==44690== 
+==44690== 44 (24 direct, 20 indirect) bytes in 1 blocks are definitely lost in loss record 2 of 2
+==44690==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==44690==    by 0x4023E0: AnalogSensor::Read() (app/AnalogSensor.cpp:16)
+==44690==    by 0x4022ED: main (app/main.cpp:7)
+==44690== 
+==44690== LEAK SUMMARY:
+==44690==    definitely lost: 24 bytes in 1 blocks
+==44690==    indirectly lost: 20 bytes in 1 blocks
+==44690==      possibly lost: 0 bytes in 0 blocks
+==44690==    still reachable: 0 bytes in 0 blocks
+==44690==         suppressed: 0 bytes in 0 blocks
+==44690== 
+==44690== Use --track-origins=yes to see where uninitialised values come from
+==44690== For lists of detected and suppressed errors, rerun with: -s
+==44690== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
